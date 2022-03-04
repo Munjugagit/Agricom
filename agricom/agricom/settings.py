@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'agricom.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'agricom',
+        'NAME': 'Agricom',
         'USER': 'postgres',
         'HOST': 'localhost',
         'PASSWORD': 'IMMANUEL',
@@ -130,3 +130,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': (0.023,36.87),
+    'DEFAULT_ZOOM': 5,
+    'MAX_ZOOM': 20,
+    'MIN_ZOOM': 3,
+    'SCALE': 'both',
+    'ATTRIBUTION_PREFIX': 'Inspired by Life in Gis',
+}
