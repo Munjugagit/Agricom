@@ -13,7 +13,8 @@ counties_mapping = {
     'shape_area': 'Shape_Area',
     'geom': 'MULTIPOLYGON',
 }
-county_shp = os.path.abspath(os.path.join(os.path.dirname(__file__),'data/KEN_adm0'))
+
+county_shp = os.path .abspath(os.path.join(os.path.dirname(__file__),'DATA/County.shp'))
 
 def run(verbose=True):
     lm = LayerMapping(Counties, county_shp, counties_mapping, transform= False, encoding='iso-8859-1')

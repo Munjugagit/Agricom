@@ -28,3 +28,5 @@ class Counties(models.Model):
     def __unicode__(self):
         return self.Counties
         
+      class Meta:
+        verbose_name_plural ="Counties"
