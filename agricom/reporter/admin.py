@@ -11,7 +11,7 @@ class IncidencesAdmin(LeafletGeoAdmin):
 
 class CountiesAdmin(LeafletGeoAdmin):
     # pass
-   list_display =('county3_field','county3_id')
+   list_display =('objectid','county')
 
 admin.site.register(Incidences, IncidencesAdmin)
 admin.site.register(Counties, CountiesAdmin)
