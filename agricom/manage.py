@@ -2,6 +2,9 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from django.contrib.gis.gdal import DataSource
+
+    DataSource('.../DATA/County.shp')
 
 
 def main():
