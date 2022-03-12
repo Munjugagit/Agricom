@@ -15,14 +15,17 @@ class Incidences(models.Model):
         verbose_name_plural ="Incidences"
 
 class Counties(models.Model):
-    objectid = models.IntegerField()
-    area = models.FloatField()
-    perimeter = models.FloatField()
-    county3_field = models.FloatField()
-    county3_id = models.FloatField()
-    county = models.CharField(max_length=20)
-    shape_leng = models.FloatField()
-    shape_area = models.FloatField()
+    id_0 = models.BigIntegerField()
+    iso = models.CharField(max_length=3)
+    name_0 = models.CharField(max_length=75)
+    id_1 = models.BigIntegerField()
+    name_1 = models.CharField(max_length=75)
+    id_2 = models.BigIntegerField()
+    name_2 = models.CharField(max_length=75)
+    type_2 = models.CharField(max_length=50)
+    engtype_2 = models.CharField(max_length=50)
+    nl_name_2 = models.TextField(blank=True, null=True)
+    varname_2 = models.CharField(max_length=150, null=True)
     geom = models.MultiPolygonField(srid=4326)
     
     def __unicode__(self):
