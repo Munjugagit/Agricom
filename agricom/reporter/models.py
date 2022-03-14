@@ -24,8 +24,8 @@ class Counties(models.Model):
     name_2 = models.CharField(max_length=75)
     type_2 = models.CharField(max_length=50)
     engtype_2 = models.CharField(max_length=50)
-    nl_name_2 = models.TextField(blank=True, null=True)
-    varname_2 = models.CharField(max_length=150, null=True)
+    nl_name_2 = models.CharField(max_length=75 )
+    varname_2 = models.CharField(max_length=150)
     geom = models.MultiPolygonField(srid=4326)
     
     def __unicode__(self):
