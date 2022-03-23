@@ -6,8 +6,7 @@ from django.contrib.gis.db import models
 class Incidences(models.Model):
     name = models.TextField()
     location = models.PointField(srid=4326)
-    objects = models.Manager()
-
+    
     def __str__(self):
         return self.name
 
@@ -24,12 +23,12 @@ class Counties(models.Model):
     name_2 = models.CharField(max_length=75)
     type_2 = models.CharField(max_length=50)
     engtype_2 = models.CharField(max_length=50)
-    nl_name_2 = models.CharField(max_length=75 )
+    nl_name_2 = models.CharField(max_length=75)
     varname_2 = models.CharField(max_length=150)
     geom = models.MultiPolygonField(srid=4326)
     
-    def __unicode__(self):
-        return self.Counties
+    def __str__(self):
+        return self.name_2
         
     class Meta:
         verbose_name_plural ="Counties"

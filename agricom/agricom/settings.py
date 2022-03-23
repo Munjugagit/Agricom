@@ -58,7 +58,7 @@ ROOT_URLCONF = 'agricom.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r'C:\Users\LANDS\Desktop\learning\agricom\reporter\Templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,10 +131,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LEAFLET_CONFIG = {
-    'DEFAULT_CENTER': (0.023,36.87),
+    'DEFAULT_CENTER': (-0.023,36.87),
     'DEFAULT_ZOOM': 5,
     'MAX_ZOOM': 20,
     'MIN_ZOOM': 3,
     'SCALE': 'both',
     'ATTRIBUTION_PREFIX': 'Inspired by Life in Gis',
+    'TILES': 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 }
