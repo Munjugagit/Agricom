@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from reporter.views import HomePageView
 
 urlpatterns = [
-   path('', views.HomePage, name='home'),
+    path('index/', HomePageView.as_view()),
 ]
