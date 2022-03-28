@@ -37,10 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'django.contrib.gis',
-    'reporter.apps.ReporterConfig',
     'leaflet',
+    'django.contrib.staticfiles',
+    'reporter.apps.ReporterConfig',
 ]
 
 MIDDLEWARE = [
@@ -125,12 +125,17 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LEAFLET_CONFIG = {
+    'SPATIAL_EXTENT': (5.0, 44.0, 7.5, 46),
     'DEFAULT_CENTER': (-0.023,36.87),
     'DEFAULT_ZOOM': 5,
     'MAX_ZOOM': 20,
