@@ -16,6 +16,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 GDAL_LIBRARY_PATH = r'C:\OSGeo4W\bin\gdal304.dll'
 GEOS_LIBRARY_PATH = r'C:\OSGeo4W\bin\geos_c.dll'
+GDAL_DATA = r'C:\OSGeo4W64\share\gdal'
+PROJ_LIB = r'C:\OSGeo4W\share\proj\proj.db'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -135,12 +137,10 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LEAFLET_CONFIG = {
-    'SPATIAL_EXTENT': (5.0, 44.0, 7.5, 46),
-    'DEFAULT_CENTER': (-0.023,36.87),
+    'DEFAULT_CENTER': (0.023,36.87),
     'DEFAULT_ZOOM': 5,
     'MAX_ZOOM': 20,
     'MIN_ZOOM': 3,
     'SCALE': 'both',
     'ATTRIBUTION_PREFIX': 'Inspired by Life in Gis',
-    'TILES': 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 }
