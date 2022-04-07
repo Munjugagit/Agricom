@@ -9,17 +9,35 @@
     <style type="text/css">
         #gis {width: 80%;height:700px;}
     </style>
-   
+    <link rel="stylesheet" type="text/css" href="{% static 'leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.css' %}"> 
    <script type="text/javascript" src= "{% static 'dist/leaflet.ajax.js' %}"> </script>
-
+   <script type="text/javascript" src= "{% static 'leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js' %}"> </script>
 </head>
 <body>
 <h3>We are heroes!!</h3>
 <br/>
 <script type="text/javascript">
     function our_layers(map,options){
+        var osm = 'http://{s}.tile.openstreetmap.org/{z}/{y}/{x}.png';
         
         var datasets = new L.GeoJSON.AJAX("{% url 'county' %}",{
+            style: function colors(feature){
+                switch(feature.properties.name_2){
+                    case 'Wajir':
+                        return{
+                            color: 'orange',
+                            fillOpacity: 0.8
+                        };
+                    break;
+                    case 'Isiolo':
+                        return{
+                            color: 'purple',
+                            fillOpacity: 0.8
+                        };
+                    break;
+
+                }
+            },
             onEachFeature: function(feature,layer){
                 layer.bindPopup(feature.properties.name_2.toString());
             }
@@ -35,6 +53,19 @@
         datasets.addTo(map);
         points.addTo(map);
 
+        var baseLayers = {
+            "OSM": osm
+        }
+
+        var groupedOverlays = {
+            "Layers": {
+                "counties": datasets,
+                "incidences": points
+            },
+            
+        };
+
+        L.control.groupedLayers(baseLayers, groupedOverlays).addTo(map);
     }
 
 </script>
