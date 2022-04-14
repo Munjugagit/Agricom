@@ -20,5 +20,5 @@ counties_mapping = {
 county_shp = Path(__file__).resolve().parent / 'data' / 'KEN_adm2.shp'
 
 def run(verbose=True):
-    lm = LayerMapping(Counties, county_shp, counties_mapping, transform= False)
+    lm = LayerMapping(Counties, county_shp, counties_mapping, transform= False, encoding= 'iso-8859-1' )
     lm.save(strict=True, verbose=verbose)

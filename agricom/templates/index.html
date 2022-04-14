@@ -9,16 +9,19 @@
     <style type="text/css">
         #gis {width: 80%;height:700px;}
     </style>
-    <link rel="stylesheet" type="text/css" href="{% static 'leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'routing/dist/leaflet-routing-machine.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'leaflet-groupedlayercontrol/dist/leaflet.groupedlayercontrol.min.css' %}"> 
    <script type="text/javascript" src= "{% static 'dist/leaflet.ajax.js' %}"> </script>
-   <script type="text/javascript" src= "{% static 'leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js' %}"> </script>
+   <script type="text/javascript" src= "{% static 'leaflet-groupedlayercontrol/dist/leaflet.groupedlayercontrol.min.js' %}">  </script>
+   <script type="text/javascript" src= "{% static 'routing/dist/leaflet-routing-machine.js' %}">  </script>
 </head>
 <body>
 <h3>We are heroes!!</h3>
 <br/>
 <script type="text/javascript">
     function our_layers(map,options){
-        var osm = 'http://{s}.tile.openstreetmap.org/{z}/{y}/{x}.png';
+        var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
         
         var datasets = new L.GeoJSON.AJAX("{% url 'county' %}",{
             style: function colors(feature){
@@ -59,13 +62,20 @@
 
         var groupedOverlays = {
             "Layers": {
-                "counties": datasets,
+                "county": datasets,
                 "incidences": points
             },
             
         };
 
         L.control.groupedLayers(baseLayers, groupedOverlays).addTo(map);
+
+        L.Routing.control({
+            waypoints: [
+                L.latLng(-0.23, 36.87),
+                L.latLng(0.23, 37.64)
+            ]
+            }).addTo(map);
     }
 
 </script>

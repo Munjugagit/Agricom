@@ -143,5 +143,4 @@ LEAFLET_CONFIG = {
     'MIN_ZOOM': 3,
     'SCALE': 'both',
     'ATTRIBUTION_PREFIX': 'Inspired by Life in Gis',
-    'TILES': 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 }
